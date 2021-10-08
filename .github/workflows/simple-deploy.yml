@@ -10,11 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
-      working-directory: ${{ github.workspace }}/piggymetrics
       uses: actions/setup-java@v2
       with:
         java-version: '11'
         distribution: 'zulu'
         cache: maven
+      working-directory: ${{ github.workspace }}/piggymetrics
     - name: Build with Maven
       run: mvn -B package --file piggymetrics/pom.xml
