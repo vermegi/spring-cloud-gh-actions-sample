@@ -2,7 +2,7 @@
 This sample is a preparation for Azure Samples Contrib
 
 
-# Setup
+# Setup the infrastructure
 
 1. Define environment variables.
 
@@ -49,4 +49,10 @@ az ad sp create-for-rbac \
 
 1. Select *Add Secret*.
 
+1. Inspect the [infra-deploy.yml](.github/workflows/infra-deploy.yml) file and update any environment variables at the top of the file to reflect your environment. 
 
+1. In your GitHub repo, navigate to *Actions* and select the *infra-deploy* action. 
+
+1. Select *Run workflow* > *Run workflow*. 
+
+1. This will start a new workflow run and deploy the necessary infrastructure. 
