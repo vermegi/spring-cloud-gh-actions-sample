@@ -13,7 +13,7 @@ resource springcloudservice 'Microsoft.AppPlatform/Spring@2021-06-01-preview' = 
 }
 
 resource app1 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
-  name: appName
+  name: '${springcloudservice.name}/${appName}'
   location: location
   properties: {
     public: true
