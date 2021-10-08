@@ -1,6 +1,6 @@
 name: simple-deploy
 
-on: [workflow_dispatch]
+on: push
 
 jobs:
   build:
@@ -18,4 +18,17 @@ jobs:
         distribution: 'zulu'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file piggymetrics/pom.xml
+      run: mvn -B package --file piggymetrics/pom.xml -DskipTests
+
+  deploy: 
+
+    runs-on: ubuntu-latest
+
+    steps: 
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
