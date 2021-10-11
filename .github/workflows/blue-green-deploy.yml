@@ -50,6 +50,6 @@ jobs:
           echo 'new deployment: ' $NEWDEPLOYMENT
           echo 'active deployment': $ACTIVEDEPLOYMENT
           az spring-cloud app deployment create --app ${{env.APP_NAME}} -n $NEWDEPLOYMENT
-          az spring-cloud app deploy -n ${{env.APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.GATEWAY_APP_NAME}}/target/${{env.GATEWAY_APP_NAME}}.jar -d $NEWDEPLOYMENT
+          az spring-cloud app deploy -n ${{env.APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.APP_NAME}}/target/${{env.GATEWAY_APP_NAME}}.jar -d $NEWDEPLOYMENT
           az spring-cloud app set-deployment -d $NEWDEPLOYMENT -n ${{env.APP_NAME}}
           az spring-cloud app deployment delete --app ${{env.APP_NAME}} -n $ACTIVEDEPLOYMENT
