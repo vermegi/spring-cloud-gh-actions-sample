@@ -47,3 +47,4 @@ jobs:
       JARPATH: ./piggymetrics/gateway/target/gateway.jar
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+    needs: build
