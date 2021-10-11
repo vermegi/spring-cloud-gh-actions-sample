@@ -28,17 +28,29 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: jar-file
-        path: ./piggymetrics/${{env.APP_NAME}}/target/${{env.APP_NAME}}.jar
+        name: jar-files
+        path: ./piggymetrics/**/target/**.jar
 
-  deploy:
+  deploy-gateway:
     uses: vermegi/spring-cloud-gh-actions-sample/.github/workflows/blue-green-deploy-job.yml@main
     needs: build
     with: 
       AZURE_RESOURCEGROUP_NAME: spring-cloud-demos
       SPRING_CLOUD_SERVICE: sping-cloud-service
       APP_NAME: gateway
-      ARTIFACT: jar-file
+      ARTIFACT: jar-files
       JARPATH: gateway.jar
+    secrets:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+
+  deploy-auth-service:
+    uses: vermegi/spring-cloud-gh-actions-sample/.github/workflows/blue-green-deploy-job.yml@main
+    needs: build
+    with: 
+      AZURE_RESOURCEGROUP_NAME: spring-cloud-demos
+      SPRING_CLOUD_SERVICE: sping-cloud-service
+      APP_NAME: auth-service
+      ARTIFACT: jar-files
+      JARPATH: auth-service.jar
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
