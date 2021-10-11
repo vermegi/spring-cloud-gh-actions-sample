@@ -15,7 +15,7 @@ resource springcloudservice 'Microsoft.AppPlatform/Spring@2021-06-01-preview' = 
 }
 
 resource springcloudserviceconfig 'Microsoft.AppPlatform/Spring/configServers@2021-06-01-preview' = {
-  name: '${springcloudservice.name}/config'
+  name: 'default'
   properties: {
     configServer: {
       gitProperty: {
