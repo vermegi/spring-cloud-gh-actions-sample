@@ -49,6 +49,17 @@ resource authservice_app 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' 
   location: location
   properties: {
     public: false
+    activeDeploymentName: 'default'
+  }
+}
+
+resource authservice_deployment 'Microsoft.AppPlatform/Spring/apps/deployments@2021-06-01-preview' = {
+  name: '${authservice_app.name}/default'
+  properties: {
+    source: {
+      relativePath: '<default>'
+      type: 'Jar'
+    }
   }
 }
 
