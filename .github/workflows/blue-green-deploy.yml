@@ -37,6 +37,7 @@ jobs:
 
   deploy:
     uses: vermegi/spring-cloud-gh-actions-sample/.github/workflows/blue-green-deploy-job.yml@main
+    needs: build
     with: 
       AZURE_RESOURCEGROUP_NAME: spring-cloud-demos
       SPRING_CLOUD_SERVICE: sping-cloud-service
@@ -47,4 +48,3 @@ jobs:
       JARPATH: ./piggymetrics/gateway/target/gateway.jar
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-    needs: build
