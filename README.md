@@ -1,6 +1,6 @@
 # spring-cloud-gh-actions-sample
-This sample is a preparation for Azure Samples Contrib
 
+This sample shows simple CI/CD for Azure Spring Cloud as well as utilizing a blue-green deployment pattern for Azure Spring Cloud. 
 
 # Setup the infrastructure
 
