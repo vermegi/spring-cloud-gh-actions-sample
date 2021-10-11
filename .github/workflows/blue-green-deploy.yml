@@ -50,7 +50,10 @@ jobs:
           echo 'new deployment: ' $NEWDEPLOYMENT
           echo 'active deployment': $ACTIVEDEPLOYMENT
           NEWDEPLOYMENTEXISTS=$(az spring-cloud app deployment list -s ${{env.SPRING_CLOUD_SERVICE}} -g ${{env.AZURE_RESOURCEGROUP_NAME}} --app ${{env.APP_NAME}} --query "[?name=='$NEWDEPLOYMENT'].name" -o tsv)
-          if [ "$NEWDEPLOYMENTEXISTS" != "$NEWDEPLOYMENT" ]; then
+          if [ "$NEWDEPLOYMENTEXISTS" = "$NEWDEPLOYMENT" ]; then
+            echo $NEWDEPLOYMENT ' already exists'
+          else
+            echo 'creating deployment ' $NEWDEPLOYMENT
             az spring-cloud app deployment create --app ${{env.APP_NAME}} -n $NEWDEPLOYMENT
           fi
           az spring-cloud app deploy -n ${{env.APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.APP_NAME}}/target/${{env.APP_NAME}}.jar -d $NEWDEPLOYMENT
