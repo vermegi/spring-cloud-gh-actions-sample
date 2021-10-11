@@ -38,8 +38,6 @@ jobs:
       AZURE_RESOURCEGROUP_NAME: spring-cloud-demos
       SPRING_CLOUD_SERVICE: sping-cloud-service
       APP_NAME: gateway
-      DEFAULT_DEPLOYMENT: default
-      NEW_DEPLOYMENT: green 
       ARTIFACT: jar-file
       JARPATH: gateway.jar
     secrets:

@@ -13,10 +13,12 @@ on:
         required: true
         type: string
       DEFAULT_DEPLOYMENT:
-        required: true
+        required: false
+        default: default
         type: string
       NEW_DEPLOYMENT:
-        required: true
+        required: false
+        default: green
         type: string
       ARTIFACT:
         required: true
