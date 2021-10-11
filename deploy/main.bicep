@@ -33,18 +33,18 @@ resource gateway 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
   }
 }
 
-resource authservice 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
-  name: '${springcloudservice.name}/${authAppName}'
-  location: location
-  properties: {
-    public: false
-  }
-}
+// resource authservice 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
+//   name: '${springcloudservice.name}/${authAppName}'
+//   location: location
+//   properties: {
+//     public: false
+//   }
+// }
 
-resource accountservice 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
-  name: '${springcloudservice.name}/${accountAppName}'
-  location: location
-  properties: {
-    public: false
-  }
-}
+// resource accountservice 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
+//   name: '${springcloudservice.name}/${accountAppName}'
+//   location: location
+//   properties: {
+//     public: false
+//   }
+// }

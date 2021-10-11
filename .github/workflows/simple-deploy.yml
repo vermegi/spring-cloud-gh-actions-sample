@@ -42,5 +42,5 @@ jobs:
           az config set defaults.group=${{env.AZURE_RESOURCEGROUP_NAME}}
           az config set defaults.spring-cloud=${{env.SPRING_CLOUD_SERVICE}}
           az spring-cloud app deploy -n ${{env.GATEWAY_APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.GATEWAY_APP_NAME}}/target/${{env.GATEWAY_APP_NAME}}.jar 
-          az spring-cloud app deploy -n ${{env.AUTH_APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.AUTH_APP_NAME}}/target/${{env.AUTH_APP_NAME}}.jar 
-          az spring-cloud app deploy -n ${{env.ACCOUNT_APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.ACCOUNT_APP_NAME}}/target/${{env.ACCOUNT_APP_NAME}}.jar 
+          # az spring-cloud app deploy -n ${{env.AUTH_APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.AUTH_APP_NAME}}/target/${{env.AUTH_APP_NAME}}.jar 
+          # az spring-cloud app deploy -n ${{env.ACCOUNT_APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.ACCOUNT_APP_NAME}}/target/${{env.ACCOUNT_APP_NAME}}.jar 
