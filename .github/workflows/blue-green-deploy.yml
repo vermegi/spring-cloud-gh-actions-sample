@@ -1,4 +1,4 @@
-name: simple-deploy
+name: blue-green-deploy
 
 on: [workflow_dispatch]
 
