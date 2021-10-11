@@ -14,7 +14,7 @@ resource springcloudservice 'Microsoft.AppPlatform/Spring@2021-06-01-preview' = 
   }
 }
 
-resource springcloudserviceconfig 'Microsoft.AppPlatform/Spring/configServers@2021-06-01-preview' = {
+resource springcloudservice_config 'Microsoft.AppPlatform/Spring/configServers@2021-06-01-preview' = {
   name: '${springcloudservice.name}/default'
   properties: {
     configServer: {
@@ -25,11 +25,21 @@ resource springcloudserviceconfig 'Microsoft.AppPlatform/Spring/configServers@20
   }
 }
 
-resource gateway 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
+resource gateway_app 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
   name: '${springcloudservice.name}/${gatewayAppName}'
   location: location
   properties: {
     public: true
+  }
+}
+
+resource gateway_deployment 'Microsoft.AppPlatform/Spring/apps/deployments@2021-06-01-preview' = {
+  name: '${gatewayAppName}/default'
+  properties: {
+    source: {
+      relativePath: '<default>'
+      type: 'Jar'
+    }
   }
 }
 
