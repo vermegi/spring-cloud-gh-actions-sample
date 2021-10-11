@@ -65,6 +65,6 @@ jobs:
             echo 'creating deployment ' $NEWDEPLOYMENT
             az spring-cloud app deployment create --app ${{inputs.APP_NAME}} -n $NEWDEPLOYMENT
           fi
-          az spring-cloud app deploy -n ${{inputs.APP_NAME}} --jar-path ${{inputs.JARPATH}} -d $NEWDEPLOYMENT
+          az spring-cloud app deploy -n ${{inputs.APP_NAME}} --jar-path ${{GITHUB_WORKSPACE}}${{inputs.JARPATH}} -d $NEWDEPLOYMENT
           az spring-cloud app set-deployment -d $NEWDEPLOYMENT -n ${{inputs.APP_NAME}}
           az spring-cloud app deployment delete --app ${{inputs.APP_NAME}} -n $ACTIVEDEPLOYMENT
