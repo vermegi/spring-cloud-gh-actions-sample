@@ -1,6 +1,6 @@
 param spring_cloud_name string = 'sping-cloud-service'
 param gatewayAppName string = 'gateway'
-// param authAppName string = 'auth-service'
+param authAppName string = 'auth-service'
 // param accountAppName string = 'account-service'
 param location string = resourceGroup().location
 
@@ -44,13 +44,13 @@ resource gateway_deployment 'Microsoft.AppPlatform/Spring/apps/deployments@2021-
   }
 }
 
-// resource authservice 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
-//   name: '${springcloudservice.name}/${authAppName}'
-//   location: location
-//   properties: {
-//     public: false
-//   }
-// }
+resource authservice_app 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
+  name: '${springcloudservice.name}/${authAppName}'
+  location: location
+  properties: {
+    public: false
+  }
+}
 
 // resource accountservice 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
 //   name: '${springcloudservice.name}/${accountAppName}'

@@ -6,8 +6,8 @@ env:
     AZURE_RESOURCEGROUP_NAME: spring-cloud-demos
     SPRING_CLOUD_SERVICE: sping-cloud-service
     GATEWAY_APP_NAME: gateway
-    AUTH_APP_NAME: auth_service
-    ACCOUNT_APP_NAME: account_service
+    AUTH_APP_NAME: auth-service
+    ACCOUNT_APP_NAME: account-service
 
 jobs:
   deploy:

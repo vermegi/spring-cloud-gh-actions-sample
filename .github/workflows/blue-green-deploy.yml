@@ -1,6 +1,6 @@
 name: blue-green-deploy-with-subflow
 
-on: push
+on: [workflow_dispatch]
 
 env:
     APP_NAME: gateway
