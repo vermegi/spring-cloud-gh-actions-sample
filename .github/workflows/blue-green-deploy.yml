@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jar-file
-        path: $GITHUB_WORKSPACE/piggymetrics/${{env.APP_NAME}}/target/${{env.APP_NAME}}.jar
+        path: ./piggymetrics/${{env.APP_NAME}}/target/${{env.APP_NAME}}.jar
 
   deploy:
     uses: vermegi/spring-cloud-gh-actions-sample/.github/workflows/blue-green-deploy-job.yml@main
@@ -44,6 +44,6 @@ jobs:
       DEFAULT_DEPLOYMENT: default
       NEW_DEPLOYMENT: green 
       ARTIFACT: jar-file
-      JARPATH: $GITHUB_WORKSPACE/piggymetrics/gateway/target/gateway.jar
+      JARPATH: ./piggymetrics/gateway/target/gateway.jar
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
