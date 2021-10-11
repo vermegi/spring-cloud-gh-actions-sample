@@ -50,7 +50,7 @@ jobs:
           az extension add --name spring-cloud
           az config set defaults.group=${{inputs.AZURE_RESOURCEGROUP_NAME}}
           az config set defaults.spring-cloud=${{inputs.SPRING_CLOUD_SERVICE}}
-          ACTIVEDEPLOYMENT=$(az spring-cloud app show -s ${{inputs.SPRING_CLOUD_SERVICE}} -g ${{inputs.AZURE_RESOURCEGROUP_NAME}} -n ${{inputs.APP_NAME}} --query properties.activeDeployment.name -o tsv)
+          ACTIVEDEPLOYMENT=$(az spring-cloud app show -n ${{inputs.APP_NAME}} --query properties.activeDeployment.name -o tsv)
           if [ "$ACTIVEDEPLOYMENT" = "${{inputs.DEFAULT_DEPLOYMENT}}" ]; then
             NEWDEPLOYMENT="${{inputs.NEW_DEPLOYMENT}}"
           else
@@ -58,7 +58,7 @@ jobs:
           fi
           echo 'new deployment: ' $NEWDEPLOYMENT
           echo 'active deployment': $ACTIVEDEPLOYMENT
-          NEWDEPLOYMENTEXISTS=$(az spring-cloud app deployment list -s ${{inputs.SPRING_CLOUD_SERVICE}} -g ${{inputs.AZURE_RESOURCEGROUP_NAME}} --app ${{inputs.APP_NAME}} --query "[?name=='$NEWDEPLOYMENT'].name" -o tsv)
+          NEWDEPLOYMENTEXISTS=$(az spring-cloud app deployment list --app ${{inputs.APP_NAME}} --query "[?name=='$NEWDEPLOYMENT'].name" -o tsv)
           if [ "$NEWDEPLOYMENTEXISTS" = "$NEWDEPLOYMENT" ]; then
             echo $NEWDEPLOYMENT ' already exists'
           else
