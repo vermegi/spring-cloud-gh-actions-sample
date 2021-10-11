@@ -45,6 +45,6 @@ jobs:
       DEFAULT_DEPLOYMENT: default
       NEW_DEPLOYMENT: green 
       ARTIFACT: jar-file
-      JARPATH: ./piggymetrics/gateway/target/gateway.jar
+      JARPATH: $GITHUB_WORKSPACE/piggymetrics/gateway/target/gateway.jar
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
