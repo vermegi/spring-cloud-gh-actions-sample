@@ -34,7 +34,7 @@ resource gateway_app 'Microsoft.AppPlatform/Spring/apps@2021-06-01-preview' = {
 }
 
 resource gateway_deployment 'Microsoft.AppPlatform/Spring/apps/deployments@2021-06-01-preview' = {
-  name: '${gatewayAppName}/default'
+  name: '${gateway_app.name}/default'
   properties: {
     source: {
       relativePath: '<default>'
