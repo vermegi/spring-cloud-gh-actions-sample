@@ -1,7 +1,7 @@
 param spring_cloud_name string = 'sping-cloud-service'
 param gatewayAppName string = 'gateway'
-param authAppName string = 'auth-service'
-param accountAppName string = 'account-service'
+// param authAppName string = 'auth-service'
+// param accountAppName string = 'account-service'
 param location string = resourceGroup().location
 
 
