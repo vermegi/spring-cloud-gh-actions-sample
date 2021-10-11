@@ -53,5 +53,3 @@ jobs:
           az spring-cloud app deploy -n ${{env.GATEWAY_APP_NAME}} --jar-path $GITHUB_WORKSPACE/piggymetrics/${{env.GATEWAY_APP_NAME}}/target/${{env.GATEWAY_APP_NAME}}.jar -d $NEWDEPLOYMENT
           az spring-cloud app set-deployment -d $NEWDEPLOYMENT -n ${{env.GATEWAY_APP_NAME}}
           az spring-cloud app deployment delete --app ${{env.GATEWAY_APP_NAME}} -n $ACTIVEDEPLOYMENT
-
-
