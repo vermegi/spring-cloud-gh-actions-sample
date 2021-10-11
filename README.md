@@ -56,3 +56,9 @@ az ad sp create-for-rbac \
 1. Select *Run workflow* > *Run workflow*. 
 
 1. This will start a new workflow run and deploy the necessary infrastructure. 
+
+# How this workflow behaves
+
+There are 2 CD workflows in this repo, [simple_deploy.yml](..github/workflows/simple-deploy.yml) and [blue-green-deploy.yml](.github/workflows/blue-green-deploy.yml). The first workflow can be manually started and will deploy to the default deployment slot. 
+
+The blue-green-deploy.yml workflow is automatically triggered on push and will deploy to a new deployment slot, swap the deployment slots and delete the old slot. 
